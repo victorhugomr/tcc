@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "triagem-de-dificuldades"
+version = "0.1.0"
+description = "Ferramenta para identificação de dificuldades dos alunos"
+authors = ["Thiago Guimarães Barros <thigb7@gmail.com>", "Victor Hugo Magalhães Rodrigues <victorhugo_mr@live.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.70.1"
+uvicorn = "^0.16.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
