@@ -8,6 +8,7 @@ authors = ["Thiago Guimarães Barros <thigb7@gmail.com>", "Victor Hugo Magalhãe
 python = "^3.8"
 fastapi = "^0.70.1"
 uvicorn = "^0.16.0"
+pydantic = "^1.9.0"
 
 [tool.poetry.dev-dependencies]
 
