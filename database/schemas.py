@@ -27,6 +27,9 @@ class Questao(BaseModel):
     class Config:
         orm_mode = True
 
+class QuestaoCreate(Questao):
+    pass
+
 class Aluno(BaseModel):
     id: int
     pilha_questoes: List
