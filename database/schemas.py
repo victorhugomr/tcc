@@ -18,6 +18,8 @@ class Alternativa(BaseModel):
 
 class Questao(BaseModel):
     id: int
+    tema: str
+    texto: str
     alternativa1: int
     alternativa2: int
     alternativa3: int

@@ -20,12 +20,10 @@ def get_db():
         db.close()
 
 
-@app.post("/questoes/", response_model=schemas.Questao)
+@app.post("/questao/", response_model=schemas.Questao)
 async def create_questao(questao: schemas.QuestaoCreate, db: Session = Depends(get_db)):
-    db_questao = crud.get_questao(db, id=questao.id)
-    if db_questao:
-        raise HTTPException(status_code=400, detail="Questão já registrada")
-    return crud.create_questao(db=db, questao=questao)
+    db_questao = crud.create_questao(db, questao=questao)
+    return db_questao
 
 
 @app.get("/questoes/", response_model=List[schemas.Questao])

@@ -8,6 +8,8 @@ class Questao(Base):
     __tablename__ = "questoes"
 
     id = Column(Integer, primary_key=True, index=True)
+    tema = Column(String, index=True)
+    texto = Column(String, index=True)
     alternativa1 = Column(String, index=True)
     alternativa2 = Column(String, index=True)
     alternativa3 = Column(String, index=True)
