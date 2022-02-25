@@ -16,6 +16,9 @@ class Alternativa(BaseModel):
     class Config:
         orm_mode = True
 
+class AlternativaCreate(Alternativa):
+    pass
+
 class Questao(BaseModel):
     id: int
     tema: str
@@ -37,3 +40,9 @@ class Aluno(BaseModel):
     pilha_questoes: List
     lista_erros: List
     pilha_temas: List
+    
+    class Config:
+        orm_mode = True
+
+class AlunoCreate(Aluno):
+    pass

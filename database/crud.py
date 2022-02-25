@@ -20,3 +20,35 @@ def create_questao(db: Session, questao: schemas.QuestaoCreate):
     db.commit()
     db.refresh(db_questao)
     return db_questao
+
+def get_alternativa(db: Session, alternativa_id: int):
+    return db.query(models.Alternativa).filter(models.Alternativa.id == alternativa_id).first()
+
+
+def get_alternativas(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Alternativa).offset(skip).limit(limit).all()
+
+
+def create_alternativa(db: Session, alternativa: schemas.AlternativaCreate):
+    db_alternativa = models.Alternativa(texto=alternativa.texto,possivel_causa_erro=alternativa.possivel_causa_erro,
+                                veracidade=alternativa.veracidade, id_questao= alternativa.id_questao)
+    db.add(db_alternativa)
+    db.commit()
+    db.refresh(db_alternativa)
+    return db_alternativa
+
+def get_aluno(db: Session, aluno_id: int):
+    return db.query(models.Aluno).filter(models.Aluno.id == aluno_id).first()
+
+
+def get_alunos(db: Session, skip: int = 0, limit: int = 100):
+    return db.query(models.Aluno).offset(skip).limit(limit).all()
+
+
+def create_aluno(db: Session, aluno: schemas.AlunoCreate):
+    db_aluno = models.Aluno(pilha_questoes=aluno.pilha_questoes[0],lista_erros=aluno.lista_erros[0],
+                                pilha_temas=aluno.pilha_temas[0])
+    db.add(db_aluno)
+    db.commit()
+    db.refresh(db_aluno)
+    return db_aluno

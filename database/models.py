@@ -33,3 +33,11 @@ class Alternativa(Base):
     id_questao = Column(Integer, ForeignKey("questoes.id"))
 
     #owner = relationship("User", back_populates="items")
+
+class Aluno(Base):
+    __tablename__ = "alunos"
+
+    id = Column(Integer, primary_key=True, index=True)
+    pilha_questoes = Column(String, index=True)
+    lista_erros = Column(String, index=True)
+    pilha_temas = Column(String, index=True)
