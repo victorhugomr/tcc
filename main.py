@@ -62,19 +62,19 @@ async def read_alternativa(alternativa_id: int, db: Session = Depends(get_db)):
     return db_alternativa
 
 #Rota para criação de aluno
-@app.post("/aluno/", response_model=schemas.Aluno)
-async def create_aluno(aluno: schemas.AlunoCreate, db: Session = Depends(get_db)):
+@app.post("/aluno/", response_model=schemas.AlunoDB)
+async def create_aluno(aluno: schemas.Aluno, db: Session = Depends(get_db)):
     db_aluno = crud.create_aluno(db, aluno=aluno)
     return db_aluno
 
 #Rota para consulta das alunos
-@app.get("/alunos/", response_model=List[schemas.Aluno])
+@app.get("/alunos/", response_model=List[schemas.AlunoDB])
 async def read_alunos(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     alunos = crud.get_alunos(db, skip=skip, limit=limit)
     return alunos
 
 #Rota para consulta de uma aluno
-@app.get("/aluno/{aluno_id}", response_model=schemas.Aluno)
+@app.get("/aluno/{aluno_id}", response_model=schemas.AlunoDB)
 async def read_aluno(aluno_id: int, db: Session = Depends(get_db)):
     db_aluno = crud.get_aluno(db, aluno_id=aluno_id)
     if db_aluno is None:

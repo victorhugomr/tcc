@@ -1,7 +1,15 @@
 from sqlalchemy.orm import Session
+from typing import List
 
 from . import models, schemas
 
+def trata_dados_aluno(lista: List):
+    texto_saida = ""
+    for elemento in lista:
+        texto_saida += elemento+", "
+    size = len(texto_saida)
+    texto_saida = texto_saida[:size - 2]
+    return texto_saida
 
 def get_questao(db: Session, questao_id: int):
     return db.query(models.Questao).filter(models.Questao.id == questao_id).first()
@@ -12,10 +20,7 @@ def get_questoes(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_questao(db: Session, questao: schemas.QuestaoCreate):
-    db_questao = models.Questao(tema=questao.tema,texto=questao.texto,
-                                alternativa1=questao.alternativa1, alternativa2= questao.alternativa2, 
-                                alternativa3=questao.alternativa3, alternativa4=questao.alternativa4, 
-                                alternativa5=questao.alternativa5)
+    db_questao = models.Questao(tema=questao.tema,texto=questao.texto)
     db.add(db_questao)
     db.commit()
     db.refresh(db_questao)
@@ -31,23 +36,24 @@ def get_alternativas(db: Session, skip: int = 0, limit: int = 100):
 
 def create_alternativa(db: Session, alternativa: schemas.AlternativaCreate):
     db_alternativa = models.Alternativa(texto=alternativa.texto,possivel_causa_erro=alternativa.possivel_causa_erro,
-                                veracidade=alternativa.veracidade, id_questao= alternativa.id_questao)
+                                veracidade=alternativa.veracidade, id_questao= alternativa.id_questao, id_proxima_questao= alternativa.id_proxima_questao)
     db.add(db_alternativa)
     db.commit()
     db.refresh(db_alternativa)
     return db_alternativa
 
 def get_aluno(db: Session, aluno_id: int):
-    return db.query(models.Aluno).filter(models.Aluno.id == aluno_id).first()
+    return db.query(models.AlunoDB).filter(models.AlunoDB.id == aluno_id).first()
 
 
 def get_alunos(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.Aluno).offset(skip).limit(limit).all()
+    return db.query(models.AlunoDB).offset(skip).limit(limit).all()
 
 
-def create_aluno(db: Session, aluno: schemas.AlunoCreate):
-    db_aluno = models.Aluno(pilha_questoes=aluno.pilha_questoes[0],lista_erros=aluno.lista_erros[0],
-                                pilha_temas=aluno.pilha_temas[0])
+def create_aluno(db: Session, aluno: schemas.Aluno):
+    db_aluno = models.AlunoDB(pilha_questoes=trata_dados_aluno(aluno.pilha_questoes),
+                            lista_erros=trata_dados_aluno(aluno.lista_erros),
+                            pilha_temas=trata_dados_aluno(aluno.pilha_temas))
     db.add(db_aluno)
     db.commit()
     db.refresh(db_aluno)
