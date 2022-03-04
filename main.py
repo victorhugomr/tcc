@@ -1,3 +1,4 @@
+import queue
 from typing import List
 
 from fastapi import Depends, FastAPI, HTTPException
@@ -92,3 +93,13 @@ async def read_questao_tema(tema: str, db: Session = Depends(get_db)):
 async def read_alternativas(questao_id: int, db: Session = Depends(get_db)):
     alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
     return alternativas
+
+#Rota para retornar uma questão e suas alternativas
+@app.get("/exame/{questao_id}")
+async def exame(questao_id: int, aluno: schemas.Aluno = schemas.Aluno(), db: Session = Depends(get_db)):
+    if aluno.id == 0:
+        ultimo_id = crud.get_last_id_aluno(db)
+        aluno.id = ultimo_id.id + 1
+    questao = crud.get_questao(db, questao_id=questao_id)
+    alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
+    return aluno.id

@@ -31,10 +31,10 @@ class QuestaoCreate(Questao):
     pass
 
 class Aluno(BaseModel):
-    id: int
-    pilha_questoes: List
-    lista_erros: List
-    pilha_temas: List
+    id: int = 0
+    pilha_questoes: List = []
+    lista_erros: List = []
+    pilha_temas: List = []
 
 class AlunoDB(BaseModel):
     id: int

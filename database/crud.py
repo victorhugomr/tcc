@@ -49,6 +49,9 @@ def get_aluno(db: Session, aluno_id: int):
 def get_alunos(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.AlunoDB).offset(skip).limit(limit).all()
 
+def get_last_id_aluno(db: Session):
+    return db.query(models.AlunoDB).order_by(models.AlunoDB.id.desc()).first()
+
 
 def create_aluno(db: Session, aluno: schemas.Aluno):
     db_aluno = models.AlunoDB(pilha_questoes=trata_dados_aluno(aluno.pilha_questoes),
