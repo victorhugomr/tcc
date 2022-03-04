@@ -58,3 +58,9 @@ def create_aluno(db: Session, aluno: schemas.Aluno):
     db.commit()
     db.refresh(db_aluno)
     return db_aluno
+
+def get_questao_tema(db: Session, tema: str):
+    return db.query(models.Questao).filter(models.Questao.tema == tema).first()
+
+def get_alternativas_questao(db: Session, questao_id: int):
+    return db.query(models.Alternativa).filter(models.Alternativa.id_questao == questao_id).all()

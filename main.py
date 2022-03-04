@@ -67,16 +67,28 @@ async def create_aluno(aluno: schemas.Aluno, db: Session = Depends(get_db)):
     db_aluno = crud.create_aluno(db, aluno=aluno)
     return db_aluno
 
-#Rota para consulta das alunos
+#Rota para consulta dos alunos
 @app.get("/alunos/", response_model=List[schemas.AlunoDB])
 async def read_alunos(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     alunos = crud.get_alunos(db, skip=skip, limit=limit)
     return alunos
 
-#Rota para consulta de uma aluno
+#Rota para consulta de um aluno
 @app.get("/aluno/{aluno_id}", response_model=schemas.AlunoDB)
 async def read_aluno(aluno_id: int, db: Session = Depends(get_db)):
     db_aluno = crud.get_aluno(db, aluno_id=aluno_id)
     if db_aluno is None:
         raise HTTPException(status_code=404, detail="Aluno não encontrada")
     return db_aluno
+
+#Rota para consulta de questão através do tema
+@app.get("/tema/{tema}", response_model=schemas.Questao)
+async def read_questao_tema(tema: str, db: Session = Depends(get_db)):
+    questao = crud.get_questao_tema(db, tema=tema)
+    return questao
+
+#Rota para consulta das alternativas de uma questão
+@app.get("/alternativas/questao/{questao_id}", response_model=List[schemas.Alternativa])
+async def read_alternativas(questao_id: int, db: Session = Depends(get_db)):
+    alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
+    return alternativas
