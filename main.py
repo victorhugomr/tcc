@@ -96,9 +96,29 @@ async def read_alternativas(questao_id: int, db: Session = Depends(get_db)):
 
 #Rota para retornar uma questão e suas alternativas
 @app.post("/exame/{questao_id}")
-async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get_db)):
+async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get_db), alternativa_anterior: schemas.Alternativa = None):
     if aluno is None:
         aluno = schemas.Aluno
-    questao = crud.get_questao(db, questao_id=questao_id)
-    alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
+    if (alternativa_anterior is None):
+        questao = crud.get_questao(db, questao_id=questao_id)
+        alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
+    else:
+        #Questao anterior        
+        questao_anterior = crud.get_questao(db, alternativa_anterior.id_questao)
+        questao = crud.get_questao(db, alternativa_anterior.id_proxima_questao)
+        #Caso a alternativa seja errada
+        if not alternativa_anterior.veracidade:
+            aluno.pilha_questoes.append(questao_anterior)
+            aluno.lista_erros.append(alternativa_anterior.possivel_causa_erro)
+            aluno.pilha_temas.append(questao.tema)
+            alternativas = crud.get_alternativas_questao(db, questao_id=questao.id)
+        #Caso a alternativa seja correta
+        else:
+            #Caso exista temas na pilha de temas
+            if aluno.pilha_temas:
+                # Caso o tema ja tenha acabado, retorna para a questão q causou a descida de nivel
+                if questao.tema not in aluno.pilha_temas:
+                    print("Tema desempilhado: " + aluno.pilha_temas.pop())
+                    questao = aluno.pilha_questoes.pop()
+                    alternativas = crud.get_alternativas_questao(db, questao_id=questao.id)
     return aluno
