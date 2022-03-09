@@ -95,14 +95,15 @@ async def read_alternativas(questao_id: int, db: Session = Depends(get_db)):
     return alternativas
 
 #Rota para retornar uma questão e suas alternativas
-@app.post("/exame/{questao_id}")
-async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get_db), alternativa_anterior: schemas.Alternativa = None):
+@app.post("/exame/{questao_id}/{alternativa_id}")
+async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get_db), alternativa_id: int = None):
     if aluno is None:
         aluno = schemas.Aluno
-    if (alternativa_anterior is None):
+    if (alternativa_id is None):
         questao = crud.get_questao(db, questao_id=questao_id)
         alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
     else:
+        alternativa_anterior = crud.get_alternativa(db, alternativa_id=alternativa_id)
         #Questao anterior        
         questao_anterior = crud.get_questao(db, alternativa_anterior.id_questao)
         questao = crud.get_questao(db, alternativa_anterior.id_proxima_questao)
