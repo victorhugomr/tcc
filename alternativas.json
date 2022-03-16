@@ -1,0 +1,17 @@
+[
+  {
+    "texto": "A resposta é 4.",
+    "tema": "Recursividade",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "id_questao": 1,
+    "nivel": 3
+  },
+    "texto": "",
+    "tema": "Estrutura de Repetição",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "id_questao": 2,
+    "nivel": 3
+  }
+]
