@@ -1,10 +1,12 @@
 [
   {
     "tema": "Nome do Tema",
-    "texto": "Esse é o questo da testão. Qual é a alternativa correta?"
+    "texto": "Esse é o questo da testão. Qual é a alternativa correta?",
+    "nivel": 3
   },
   {
     "tema": "Nome do Tema2",
-    "texto": "Esse é o questo da testão. Qual é a alternativa correta?2"
+    "texto": "Esse é o questo da testão. Qual é a alternativa correta?2",
+    "nivel": 1
   }
 ]
