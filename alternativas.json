@@ -1,18 +1,22 @@
 [
   {
     "texto": "A resposta é 4.",
-    "tema": "Recursividade",
     "possivel_causa_erro": "",
     "veracidade": true,
-    "id_questao": 1,
-    "nivel": 3
+    "tema": "Recursividade",
+    "nivel": 3,
+    "id_questao": 1
   },
   {
-    "texto": "",
-    "tema": "Estrutura de Repetição",
-    "possivel_causa_erro": "",
+    "texto": "
+    questão
+      main():
+        bloco de comandos
+    ",
+    "possivel_causa_erro": "Não declarou a main",
     "veracidade": false,
-    "id_questao": 2,
-    "nivel": 3
+    "tema": "Recursividade",
+    "nivel": 3,
+    "id_questao": 1
   }
 ]
