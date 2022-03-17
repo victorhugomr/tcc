@@ -20,7 +20,7 @@ def get_questoes(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_questao(db: Session, questao: schemas.QuestaoCreate):
-    db_questao = models.Questao(tema=questao.tema,texto=questao.texto)
+    db_questao = models.Questao(tema=questao.tema,texto=questao.texto, nivel=questao.nivel)
     db.add(db_questao)
     db.commit()
     db.refresh(db_questao)

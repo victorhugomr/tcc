@@ -23,6 +23,7 @@ class Questao(BaseModel):
     id: int
     tema: str
     texto: str
+    nivel: int
 
     class Config:
         orm_mode = True
