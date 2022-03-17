@@ -7,11 +7,12 @@ from pydantic import BaseModel, validator, ValidationError
 
 class Alternativa(BaseModel):
     id: int
+    tema: str
+    nivel: int
     texto: str
     possivel_causa_erro: str
     veracidade: bool
     id_questao: int
-    id_proxima_questao: int
 
     class Config:
         orm_mode = True
@@ -34,14 +35,19 @@ class QuestaoCreate(Questao):
 class Aluno(BaseModel):
     id: int = 0
     pilha_questoes: List = []
-    lista_erros: List = []
     pilha_temas: List = []
+    lista_erros: List = []
+    questoes_feitas: List = []
+    temas_feitos: List = []
 
 class AlunoDB(BaseModel):
     id: int
     pilha_questoes: str
     lista_erros: str
     pilha_temas: str
+    questoes_feitas: str
+    temas_feitos: str
+
     
     class Config:
         orm_mode = True

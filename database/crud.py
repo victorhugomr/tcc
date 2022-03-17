@@ -20,7 +20,7 @@ def get_questoes(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_questao(db: Session, questao: schemas.QuestaoCreate):
-    db_questao = models.Questao(tema=questao.tema,texto=questao.texto, nivel=questao.nivel)
+    db_questao = models.Questao(id=questao.id, tema=questao.tema,texto=questao.texto, nivel=questao.nivel)
     db.add(db_questao)
     db.commit()
     db.refresh(db_questao)
@@ -36,7 +36,8 @@ def get_alternativas(db: Session, skip: int = 0, limit: int = 100):
 
 def create_alternativa(db: Session, alternativa: schemas.AlternativaCreate):
     db_alternativa = models.Alternativa(texto=alternativa.texto,possivel_causa_erro=alternativa.possivel_causa_erro,
-                                veracidade=alternativa.veracidade, id_questao= alternativa.id_questao, id_proxima_questao= alternativa.id_proxima_questao)
+                                veracidade=alternativa.veracidade, id_questao= alternativa.id_questao, 
+                                tema= alternativa.tema, nivel= alternativa.nivel)
     db.add(db_alternativa)
     db.commit()
     db.refresh(db_alternativa)
@@ -56,7 +57,9 @@ def get_last_id_aluno(db: Session):
 def create_aluno(db: Session, aluno: schemas.Aluno):
     db_aluno = models.AlunoDB(pilha_questoes=trata_dados_aluno(aluno.pilha_questoes),
                             lista_erros=trata_dados_aluno(aluno.lista_erros),
-                            pilha_temas=trata_dados_aluno(aluno.pilha_temas))
+                            pilha_temas=trata_dados_aluno(aluno.pilha_temas),
+                            questoes_feitas=trata_dados_aluno(aluno.questoes_feitas),
+                            temas_feitos=trata_dados_aluno(aluno.temas_feitos))
     db.add(db_aluno)
     db.commit()
     db.refresh(db_aluno)

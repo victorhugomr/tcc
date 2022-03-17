@@ -23,11 +23,12 @@ class Alternativa(Base):
     __tablename__ = "alternativas"
 
     id = Column(Integer, primary_key=True, index=True)
+    tema = Column(String, index=True)
+    nivel = Column(Integer, index=True)
     texto = Column(String, index=True)
     possivel_causa_erro = Column(String, index=True)
     veracidade = Column(Boolean, default=False)
     id_questao = Column(Integer, ForeignKey("questoes.id"))
-    id_proxima_questao = Column(Integer, ForeignKey("questoes.id"))
 
 
     #owner = relationship("User", back_populates="items")
@@ -39,5 +40,6 @@ class AlunoDB(Base):
     pilha_questoes = Column(String, index=True)
     lista_erros = Column(String, index=True)
     pilha_temas = Column(String, index=True)
-
+    questoes_feitas = Column(String, index=True)
+    temas_feitos = Column(String, index=True)
 
