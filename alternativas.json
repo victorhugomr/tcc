@@ -1,22 +1,883 @@
 [
   {
-    "texto": "A resposta é 4.",
+    "texto": "
+numero = int(input('Informe um número, de 1 a 10, para ver sua tabuada: '))
+print('Tabuada de', numero, ':')
+for i in range(1, 11):
+  print(numero, 'X', i, '=', (numero * i))",
     "possivel_causa_erro": "",
     "veracidade": true,
-    "tema": "Recursividade",
+    "tema": "Estrutura de Repetição",
     "nivel": 3,
     "id_questao": 1
   },
   {
     "texto": "
-    questão
-      main():
-        bloco de comandos
-    ",
-    "possivel_causa_erro": "Não declarou a main",
+numero = int(input('Informe um número, de 1 a 10, para ver sua tabuada: '))
+print('Tabuada de', numero, ':')
+for i in range(1, 10):
+  print(numero, 'X', i, '=', (numero * i))",
+    "possivel_causa_erro": "",
     "veracidade": false,
-    "tema": "Recursividade",
+    "tema": "Estrutura de Repetição",
     "nivel": 3,
     "id_questao": 1
+  },
+  {
+    "texto": "
+def main():
+  numero = int(input('Informe um número, de 1 a 10, para ver sua tabuada: '))
+  print('Tabuada de', numero, ':')
+  for i in range(1, 11):
+    print(numero, 'X', i, '=', (numero * i))",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 1
+  },
+  {
+    "texto": "
+numero = int(input('Informe um número, de 1 a 10, para ver sua tabuada: '))
+print('Tabuada de', numero, ':')
+for i in range(1, 11)
+  print(numero, 'X', i, '=', (numero * i))",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 1
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 3,
+    "id_questao": 2
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 3,
+    "id_questao": 2
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 2
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 2
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 3,
+    "id_questao": 3
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 3,
+    "id_questao": 3
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 3
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 3
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "id_questao": 4
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "id_questao": 4
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 4
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 4
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "id_questao": 5
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "id_questao": 5
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 5
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 5
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "id_questao": 6
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "id_questao": 6
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 6
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 6
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "id_questao": 7
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "id_questao": 7
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 7
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 7
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "id_questao": 8
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "id_questao": 8
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 8
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 8
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "id_questao": 9
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "id_questao": 9
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 9
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 9
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 10
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 10
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 3,
+    "id_questao": 10
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 10
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 11
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 11
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 3,
+    "id_questao": 11
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 11
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 12
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 12
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 3,
+    "id_questao": 12
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 12
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 13
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 13
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 2,
+    "id_questao": 13
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 13
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 14
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 14
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 2,
+    "id_questao": 14
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 14
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 15
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 15
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 2,
+    "id_questao": 15
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 15
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 16
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 16
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 1,
+    "id_questao": 16
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 16
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 17
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 17
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 1,
+    "id_questao": 17
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 17
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 18
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 18
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 1,
+    "id_questao": 18
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 18
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 19
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 19
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 3,
+    "id_questao": 19
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 19
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 20
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 20
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 3,
+    "id_questao": 20
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 20
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 21
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "id_questao": 21
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 3,
+    "id_questao": 21
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "id_questao": 21
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 22
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 22
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 2,
+    "id_questao": 22
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 22
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 23
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 23
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 2,
+    "id_questao": 23
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 23
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 24
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "id_questao": 24
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 2,
+    "id_questao": 24
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "id_questao": 24
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 25
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 25
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 1,
+    "id_questao": 25
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 25
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 26
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 26
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 1,
+    "id_questao": 26
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 26
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": true,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 27
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "id_questao": 27
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 1",
+    "nivel": 1,
+    "id_questao": 27
+  },
+  {
+    "texto": "",
+    "possivel_causa_erro": "",
+    "veracidade": false,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "id_questao": 27
   }
 ]
