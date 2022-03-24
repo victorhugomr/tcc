@@ -1,14 +1,164 @@
 [
   {
     "id": 1,
-    "tema": "Nome do Tema",
+    "tema": "Estrutura de Repetição",
     "nivel": 3,
-    "texto": "Esse é o questo da testão. Qual é a alternativa correta?"
+    "texto": "Precisamos que você simule um programa em linguagem Python que leia um valor inteiro e também mostre a tabuada de 1 a 10 do respectivo valor lido. Segundo estas orientação, qual das estruturas abaixo está correta?"
   },
   {
     "id": 2,
-    "tema": "Nome do Tema2",
+    "tema": "Estrutura de Repetição",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 3,
+    "tema": "Estrutura de Repetição",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 4,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 5,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 6,
+    "tema": "Estrutura de Repetição",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 7,
+    "tema": "Estrutura de Repetição",
     "nivel": 1,
-    "texto": "Esse é o questo da testão. Qual é a alternativa correta?2"
+    "texto": ""
+  },
+    {
+    "id": 8,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 9,
+    "tema": "Estrutura de Repetição",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 10,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 11,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 12,
+    "tema": "Tema 2",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 13,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 14,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 15,
+    "tema": "Tema 2",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 16,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 17,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 18,
+    "tema": "Tema 2",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 19,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 20,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 21,
+    "tema": "Tema 3",
+    "nivel": 3,
+    "texto": ""
+  },
+    {
+    "id": 22,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 23,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 24,
+    "tema": "Tema 3",
+    "nivel": 2,
+    "texto": ""
+  },
+    {
+    "id": 25,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 26,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "texto": ""
+  },
+    {
+    "id": 27,
+    "tema": "Tema 3",
+    "nivel": 1,
+    "texto": ""
   }
 ]
