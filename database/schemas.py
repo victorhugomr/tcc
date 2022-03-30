@@ -8,7 +8,6 @@ from pydantic import BaseModel, validator, ValidationError
 class Alternativa(BaseModel):
     id: int
     tema: str
-    nivel: int
     texto: str
     possivel_causa_erro: str
     veracidade: bool

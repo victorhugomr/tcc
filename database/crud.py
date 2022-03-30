@@ -37,7 +37,7 @@ def get_alternativas(db: Session, skip: int = 0, limit: int = 100):
 def create_alternativa(db: Session, alternativa: schemas.AlternativaCreate):
     db_alternativa = models.Alternativa(texto=alternativa.texto,possivel_causa_erro=alternativa.possivel_causa_erro,
                                 veracidade=alternativa.veracidade, id_questao= alternativa.id_questao, 
-                                tema= alternativa.tema, nivel= alternativa.nivel)
+                                tema= alternativa.tema)
     db.add(db_alternativa)
     db.commit()
     db.refresh(db_alternativa)
@@ -65,8 +65,8 @@ def create_aluno(db: Session, aluno: schemas.Aluno):
     db.refresh(db_aluno)
     return db_aluno
 
-def get_questao_tema(db: Session, tema: str):
-    return db.query(models.Questao).filter(models.Questao.tema == tema).first()
+def get_questoes_tema_nivel(db: Session, tema: str, nivel: int):
+    return db.query(models.Questao).filter(models.Questao.tema == tema and models.Questao.nivel == nivel).all()
 
 def get_alternativas_questao(db: Session, questao_id: int):
     return db.query(models.Alternativa).filter(models.Alternativa.id_questao == questao_id).all()

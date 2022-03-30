@@ -24,7 +24,6 @@ class Alternativa(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     tema = Column(String, index=True)
-    nivel = Column(Integer, index=True)
     texto = Column(String, index=True)
     possivel_causa_erro = Column(String, index=True)
     veracidade = Column(Boolean, default=False)
