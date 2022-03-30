@@ -66,7 +66,7 @@ def create_aluno(db: Session, aluno: schemas.Aluno):
     return db_aluno
 
 def get_questoes_tema_nivel(db: Session, tema: str, nivel: int):
-    return db.query(models.Questao).filter(models.Questao.tema == tema and models.Questao.nivel == nivel).all()
+    return db.query(models.Questao).filter(models.Questao.tema == tema, models.Questao.nivel == nivel).all()
 
 def get_alternativas_questao(db: Session, questao_id: int):
     return db.query(models.Alternativa).filter(models.Alternativa.id_questao == questao_id).all()

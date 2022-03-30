@@ -1,3 +1,4 @@
+from curses.ascii import alt
 import queue
 from typing import List
 
@@ -6,6 +7,7 @@ from sqlalchemy.orm import Session
 
 from .database import crud, models, schemas
 from .database.database import SessionLocal, engine
+from .database.batch_loader import carrega_alternativas, carrega_questoes
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -21,6 +23,11 @@ def get_db():
         db.close()
 
 #Rotas
+
+@app.get("/carrega_batch")
+async def carrega_batch(db: Session = Depends(get_db)):
+    carrega_questoes(db)
+    carrega_alternativas(db)
 
 #Rota para criação de questão
 @app.post("/questao/", response_model=schemas.Questao)
@@ -100,26 +107,35 @@ async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get
     if aluno is None:
         aluno = schemas.Aluno
     if (alternativa_id == 0):
-        questao = crud.get_questao(db, questao_id=questao_id)
+        proxima_questao = crud.get_questao(db, questao_id=questao_id)
         alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
     else:
         alternativa_anterior = crud.get_alternativa(db, alternativa_id=alternativa_id)
         #Questao anterior        
         questao_anterior = crud.get_questao(db, alternativa_anterior.id_questao)
-        questao = crud.get_questao(db, alternativa_anterior.id_proxima_questao)
+        #Extraindo tema da alternativa
+        tema = alternativa_anterior.tema
+        #Calculo de nivel
+        if alternativa_anterior.tema == questao_anterior.tema:
+            nivel = questao_anterior.nivel - 1
+        else:
+            nivel = 3
+        #consulta lista de possiveis questoes de mesmo tema e nivel
+        proximas_questoes = crud.get_questoes_tema_nivel(db, tema=tema, nivel=nivel)
+        print(proximas_questoes[1].texto)
+        proxima_questao = proximas_questoes[0]
         #Caso a alternativa seja errada
         if not alternativa_anterior.veracidade:
             aluno.pilha_questoes.append(questao_anterior)
             aluno.lista_erros.append(alternativa_anterior.possivel_causa_erro)
-            aluno.pilha_temas.append(questao.tema)
-            alternativas = crud.get_alternativas_questao(db, questao_id=questao.id)
+            aluno.pilha_temas.append(questao_anterior.tema)
         #Caso a alternativa seja correta
         else:
             #Caso exista temas na pilha de temas
             if aluno.pilha_temas:
                 # Caso o tema ja tenha acabado, retorna para a questão q causou a descida de nivel
-                if questao.tema not in aluno.pilha_temas:
+                if proxima_questao.tema not in aluno.pilha_temas:
                     print("Tema desempilhado: " + aluno.pilha_temas.pop())
-                    questao = aluno.pilha_questoes.pop()
-                    alternativas = crud.get_alternativas_questao(db, questao_id=questao.id)
-    return aluno
+                    proxima_questao = aluno.pilha_questoes.pop()
+        alternativas = crud.get_alternativas_questao(db, questao_id=proxima_questao.id)
+    return aluno, alternativas, proxima_questao
