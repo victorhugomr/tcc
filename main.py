@@ -106,9 +106,14 @@ async def read_alternativas(questao_id: int, db: Session = Depends(get_db)):
 async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get_db), alternativa_id: int = 0):
     if aluno is None:
         aluno = schemas.Aluno
+    #Primeira questão acessada
     if (alternativa_id == 0):
         proxima_questao = crud.get_questao(db, questao_id=questao_id)
         alternativas = crud.get_alternativas_questao(db, questao_id=questao_id)
+    #Caso seja selecionado a opção de finalizar o exame
+    elif (alternativa_id == 5):
+        return aluno
+    #Questão vindo de outra questão anterior
     else:
         alternativa_anterior = crud.get_alternativa(db, alternativa_id=alternativa_id)
         #Questao anterior        
@@ -120,10 +125,23 @@ async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get
             nivel = questao_anterior.nivel - 1
         else:
             nivel = 3
-        #consulta lista de possiveis questoes de mesmo tema e nivel
+        #Consulta lista de possiveis questoes de mesmo tema e nivel
         proximas_questoes = crud.get_questoes_tema_nivel(db, tema=tema, nivel=nivel)
-        print(proximas_questoes[1].texto)
-        proxima_questao = proximas_questoes[0]
+        contador = 0
+        for questao in proximas_questoes:
+            contador += 1
+            #Escolhe uma questao que ainda nao foi feita pelo aluno
+            if questao not in aluno.questoes_feitas:
+                proxima_questao = questao
+                break
+            #Caso o aluno tenha feito todas as questoes buscadas
+            #é verificado se há questao na pilha de questoes
+            #caso não haja, retorna tela com resultado final
+            if contador == len(proximas_questoes):
+                if aluno.pilha_questoes is not None:
+                    proxima_questao = aluno.pilha_questoes.pop()
+                else:
+                    return aluno
         #Caso a alternativa seja errada
         if not alternativa_anterior.veracidade:
             aluno.pilha_questoes.append(questao_anterior)
@@ -138,4 +156,9 @@ async def exame(questao_id: int, aluno: schemas.Aluno, db: Session = Depends(get
                     print("Tema desempilhado: " + aluno.pilha_temas.pop())
                     proxima_questao = aluno.pilha_questoes.pop()
         alternativas = crud.get_alternativas_questao(db, questao_id=proxima_questao.id)
+
+        alternativa_nao_sei = schemas.Alternativa(id_questao = proxima_questao.id, veracidade = False,
+                                        tema = proxima_questao.tema,texto = 'Não sei', id = 0,
+                                        possivel_causa_erro = 'Conhecimento sobre o tema')
+        alternativas.append(alternativa_nao_sei)
     return aluno, alternativas, proxima_questao
